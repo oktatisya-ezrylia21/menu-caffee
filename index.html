@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <!-- Mengatur viewport agar tampilan responsif di layar HP/Smartphone -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Digital Kafe</title>
+    
+    <!-- Memuat CSS Eksternal (File style.css yang nanti akan dibuat) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ========================================== -->
+    <!-- 1. HEADER / KEPALA HALAMAN                 -->
+    <!-- ========================================== -->
+    <header class="header">
+        <div class="header-container">
+            <!-- Nama Kafe / Restoran -->
+            <h1 class="brand-title">☕ Kopi Kawan SMA</h1>
+            <p class="brand-subtitle">Menu Interaktif & Cepat Tanpa Antre</p>
+        </div>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- 2. AREA PENCARIAN & FILTER KATEGORI        -->
+    <!-- ========================================== -->
+    <section class="filter-section">
+        <div class="container">
+            <!-- Input Pencarian Nama Menu -->
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Cari makanan atau minuman..." 
+                    oninput="filterMenu()"
+                >
+            </div>
+
+            <!-- Tombol Filter Kategori (Makanan, Minuman, Dessert) -->
+            <div class="category-buttons">
+                <button class="btn-category active" onclick="filterKategori('semua')">Semua</button>
+                <button class="btn-category" onclick="filterKategori('makanan')">Makanan</button>
+                <button class="btn-category" onclick="filterKategori('minuman')">Minuman</button>
+                <button class="btn-category" onclick="filterKategori('dessert')">Dessert</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 3. DAFTAR MENU (DITAMPILKAN OLEH JAVASCRIPT)-->
+    <!-- ========================================== -->
+    <main class="menu-section container">
+        <!-- Wadah utama tempat item menu akan dimuat secara dinamis dari script.js -->
+        <div id="menuContainer" class="menu-grid">
+            <!-- Isi menu akan dirender oleh JavaScript di sini -->
+        </div>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- 4. RINGKASAN PESANAN (KERANJANG SEMENTARA) -->
+    <!-- ========================================== -->
+    <section class="cart-section container">
+        <div class="cart-card">
+            <h2>🛒 Ringkasan Pesanan Saya</h2>
+            
+            <!-- Daftar item yang dipilih pelanggan -->
+            <div id="cartItems" class="cart-items-list">
+                <p class="empty-cart-text">Belum ada menu yang dipilih.</p>
+            </div>
+
+            <hr class="divider">
+
+            <!-- Total Biaya Pesanan -->
+            <div class="cart-summary">
+                <span>Total Estimasi:</span>
+                <strong id="totalHarga">Rp 0</strong>
+            </div>
+
+            <!-- Tombol untuk tunjukkan ke kasir -->
+            <button class="btn-checkout" onclick="tunjukkanKeKasir()">
+                Tunjukkan Pesanan ke Kasir
+            </button>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 5. FOOTER / BAGIAN BAWAH                   -->
+    <!-- ========================================== -->
+    <footer class="footer">
+        <p>&copy; 2026 Proyek Menu Digital - Karya Anak SMK/SMA</p>
+        <p><small>Bisa diakses offline maupun online tanpa database.</small></p>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- 6. SKRIP JAVASCRIPT                        -->
+    <!-- ========================================== -->
+    <!-- Memuat logika data menu dan interaksi pengguna dari script.js -->
+    <script src="script.js"></script>
+</body>
+</html>
