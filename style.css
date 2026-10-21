@@ -1,0 +1,296 @@
+/* ==========================================================================
+   1. VARIABEL & RESET CSS (PENGATURAN DASAR)
+   ========================================================================== */
+
+/* Variabel Warna & Properti Utama (Memudahkan kustomisasi tema kafe) */
+:root {
+    --primary-color: #8B4513;      /* Warna Cokelat Utama (Tema Kopi) */
+    --primary-hover: #A0522D;      /* Warna Cokelat saat tombol di-hover */
+    --accent-color: #D2691E;       /* Warna Oranye Akse (Highlight/Harga) */
+    --bg-color: #FDFBF7;           /* Warna Latar Belakang Utama (Krem Lembut) */
+    --card-bg: #FFFFFF;            /* Warna Latar Belakang Kartu (Putih) */
+    --text-color: #333333;          /* Warna Teks Utama (Abu TUA / Tidak Hitam Pekat) */
+    --text-muted: #666666;          /* Warna Teks Sekunder (Deskripsi) */
+    --border-color: #EEEEEE;        /* Warna Garis Pembatas Lembut */
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Bayangan Kartu */
+    --radius: 12px;                /* Kelengkungan Sudut Kartu/Tombol */
+}
+
+/* Reset CSS agar semua browser menampilkan margin/padding yang konsisten */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding-bottom: 40px; /* Jarak ruang di bagian terbawah */
+}
+
+/* Container pembatas lebar konten agar tetap rapi di layar lebar */
+.container {
+    width: 100%;
+    max-width: 600px; /* Dioptimalkan untuk tampilan seluler/HP */
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* ==========================================================================
+   2. HEADER / KEPALA HALAMAN
+   ========================================================================== */
+.header {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    text-align: center;
+    padding: 24px 16px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.brand-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.brand-subtitle {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-top: 4px;
+}
+
+/* ==========================================================================
+   3. AREA PENCARIAN & FILTER KATEGORI
+   ========================================================================== */
+.filter-section {
+    margin-top: 20px;
+}
+
+/* Kotak Input Pencarian */
+.search-box input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    border: 1px solid #DDD;
+    border-radius: var(--radius);
+    outline: none;
+    transition: border-color 0.3s ease;
+    background-color: #FFFFFF;
+}
+
+.search-box input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.15);
+}
+
+/* Tombol Filter Kategori (Bisa digeser menyamping di HP) */
+.category-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    overflow-x: auto; /* Bisa scroll horizontal jika tombol tidak muat */
+    padding-bottom: 8px;
+}
+
+.btn-category {
+    background-color: #EFEFEF;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-color);
+    cursor: pointer;
+    white-space: nowrap; /* Mencegah teks turun ke bawah */
+    transition: all 0.3s ease;
+}
+
+.btn-category.active,
+.btn-category:hover {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+}
+
+/* ==========================================================================
+   4. DAFTAR MENU (GRID & KARTU ITEM)
+   ========================================================================== */
+.menu-section {
+    margin-top: 20px;
+}
+
+.menu-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Jarak antar kartu menu */
+}
+
+/* Kartu Menu Individual */
+.menu-card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 12px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+/* Gambar Menu */
+.menu-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover; /* Agar gambar tidak terseret/gepeng */
+    background-color: #EEE;
+}
+
+/* Informasi Menu */
+.menu-info {
+    flex: 1; /* Mengambil sisa ruang yang ada */
+}
+
+.menu-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.menu-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin: 4px 0;
+}
+
+.menu-price {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+/* Tombol Tambah ke Keranjang */
+.btn-add {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-add:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Pesan jika menu tidak ditemukan saat dicari */
+.no-menu-text {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 20px 0;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   5. RINGKASAN PESANAN (KERANJANG SEMENTARA)
+   ========================================================================== */
+.cart-section {
+    margin-top: 28px;
+}
+
+.cart-card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+.cart-card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+
+/* Daftar Item di Keranjang */
+.cart-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.empty-cart-text {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 10px 0;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-qty {
+    background-color: #EEEEEE;
+    border: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.divider {
+    border: none;
+    border-top: 1px dashed #DDD;
+    margin: 12px 0;
+}
+
+.cart-summary {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.btn-checkout {
+    width: 100%;
+    background-color: #2E7D32; /* Warna Hijau untuk Aksi Pembayaran/Selesai */
+    color: #FFFFFF;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-checkout:hover {
+    background-color: #1B5E20;
+}
+
+/* ==========================================================================
+   6. FOOTER / BAGIAN BAWAH
+   ========================================================================== */
+.footer {
+    text-align: center;
+    margin-top: 32px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
